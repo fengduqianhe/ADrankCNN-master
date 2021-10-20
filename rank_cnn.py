@@ -33,6 +33,11 @@ start = datetime.now()
 seed = 0
 torch.cuda.manual_seed_all(seed)
 
+torch.manual_seed(seed)
+torch.cuda.manual_seed_all(seed)
+np.random.seed(seed)
+random.seed(seed)
+torch.backends.cudnn.deterministic = True
 
 class EarlyStopping:
     """Early stops the training if validation loss doesn't improve after a given patience."""
@@ -278,27 +283,12 @@ if __name__ == "__main__":
             group_compare[labels1 - labels2 < -5] = 0
             group_compare[labels1 - labels2 > 5] = 1
 
-            # print(group_compare)
-            # print(logps_sig)
+        
             loss_pair = F.binary_cross_entropy(logps_sig, group_compare)
-            # group_compare = (torch.abs(labels1 - labels2) >= 3)
-            # # group_compare = (group1 != group2)
-            # print("group_compare", group_compare)
-            # # euclidean_distance1 = F.cosine_similarity(merged1, merged2) + 1
-            # euclidean_distance1 = F.pairwise_distance(merged1, merged2, keepdim=True)
-            #
-            # print("euclidean_distance1", euclidean_distance1)
-            # loss_pair = torch.mean((1 - group_compare.float()) * torch.pow(euclidean_distance1.float(), 2) +
-            #                        (group_compare.float()) * torch.pow(
-            #     torch.clamp(5 - euclidean_distance1.float(), min=0.0), 2))
+
 
             loss_mmse = F.mse_loss(logps, labels.float())
             loss_line = bce(outline, labels_line.float())
-            # print("train ground truth", labels)
-            # print("train predict", logps)
-
-            # print("train  line", labels_line)
-            # print(" predict line", merged)
 
             print("loss_mmse", loss_mmse)
             # print("loss_line", loss_line)
