@@ -1,4 +1,4 @@
-# ADrankTPR-master
+# ADrankCNN-master
     Pytoch implementation of rankCNN for brain disease prognosis
 
     The code was written by Hezhe Qiao and Dr. Lin Chen, Department of Radiology at Chongqing Institute of Green\
