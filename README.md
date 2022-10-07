@@ -25,4 +25,5 @@ All MRIs were prepocessed by a standard pipeline in CAT12 toolbox which is avaia
 
 5.Note
 Please cite our paper if you use this code in your own work.
-
+cite
+Qiao H, Chen L, Zhu F. Ranking convolutional neural network for Alzheimer's disease mini-mental state examination prediction at multiple time-points. Comput Methods Programs Biomed. 2022 Jan;213:106503. doi: 10.1016/j.cmpb.2021.106503. Epub 2021 Nov 6. PMID: 34798407
